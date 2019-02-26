@@ -1,26 +1,22 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 plugins {
-    id 'java'
-    id 'org.jetbrains.intellij' version '0.4.3'
+    id "org.jetbrains.intellij" version "0.4.3"
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+intellij {
+    version '2018.2.5'
+    plugins 'coverage'
+    pluginName 'ginkgo'
 }
 
 group 'us.kardol'
 version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-intellij {
-    version '2018.2.5'
-}
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
-}
